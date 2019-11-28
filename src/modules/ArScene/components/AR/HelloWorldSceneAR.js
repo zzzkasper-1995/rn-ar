@@ -33,10 +33,13 @@ const height = 0.158;
 
 export default class HelloWorldSceneAR extends Component {
 
-  state = {
-    isTracking: false,
-    initialized: false,
-    runAnimation: false
+  constructor(props){
+    super(props)
+    this.state = {
+      isTracking: false,
+      initialized: false,
+      runAnimation: false
+    }
   }
 
   getNoTrackingUI(){
@@ -49,9 +52,10 @@ export default class HelloWorldSceneAR extends Component {
     )
   }
 
-
-
   getARScene() {
+    const {sceneNavigator: {viroAppProps}} = this.props;
+    const {type} = viroAppProps;
+
     return (
       <ViroNode>
         <ViroARImageMarker target={"book"}
@@ -72,22 +76,22 @@ export default class HelloWorldSceneAR extends Component {
                 run: this.state.runAnimation
               }}
             >
-                  <ViroImage
+                  {type==='image'?<ViroImage
                     position={[0, 0, 0]}
                     height={height}
                     width={width}
                     style={styles.image}
                     source={require('./res/space.jpg')}
                     scale={[1, 1, 1]}
-                  />
-                  {/* <ViroVideo
+                  />:
+                  <ViroVideo
                       source={require('./res/train.mp4')}
                       loop={true}
                       style={styles.image}
                       height={height}
                       width={width}
                       style={styles.image}
-                  /> */}
+                  />}
             </ViroNode>
         </ViroARImageMarker>
       </ViroNode>

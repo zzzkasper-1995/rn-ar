@@ -18,21 +18,47 @@ export default class ViroSample extends Component {
 			styles: Styles,
 			isBack: true,
 		});
-	}
+  }
+  
+  handleShowImage = () => {
+    this.setState({type: 'image'})
+  }
+
+  handleShowVideo = () => {
+    this.setState({type: 'video'})
+  }
 
 	render() {
+		const {styles, compose} = this;
+		const {type} = this.state;
+
 		return (
 			<View style={{flex: 1}}>
-				<ViroARSceneNavigator numberOfTrackedImages={4} initialScene={{scene: InitialARScene}} />
+				<ViroARSceneNavigator
+					numberOfTrackedImages={4}
+					initialScene={{scene: InitialARScene}}
+					viroAppProps={{type}}
+				/>
 
 				<View style={{position: 'absolute', left: 20, right: 20, bottom: 20}}>
 					<Button
 						full
 						text='Show image'
-						onAction={() => this.setState({type: 'image'})}
-						style={{marginBottom: 10}}
+						onAction={this.handleShowImage}
+						style={compose(
+							styles.btn,
+							{borderWidth: type === 'image' ? 2 : 0},
+						)}
 					/>
-					<Button full text='Show video' onAction={() => this.setState({type: 'video'})} />
+					<Button
+						full
+						text='Show video'
+						onAction={this.handleShowVideo}
+						style={compose(
+							styles.btn,
+							{borderWidth: type === 'video' ? 2 : 0},
+						)}
+					/>
 				</View>
 			</View>
 		);

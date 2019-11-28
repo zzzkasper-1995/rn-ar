@@ -1,11 +1,8 @@
 import React, {Component} from 'react';
 import {ViroARSceneNavigator} from 'react-viro';
 import {BindComponent, View, Button} from '../../../library';
-
+import InitialARScene from './AR';
 import Styles from './styles';
-
-// Sets the default scene you want for AR and VR
-const InitialARScene = require('./AR/HelloWorldSceneAR');
 
 export default class ViroSample extends Component {
 	constructor(props) {
@@ -40,7 +37,7 @@ export default class ViroSample extends Component {
 					viroAppProps={{type}}
 				/>
 
-				<View style={{position: 'absolute', left: 20, right: 20, bottom: 20}}>
+				<View style={styles.btnsView}>
 					<Button
 						full
 						text='Show image'

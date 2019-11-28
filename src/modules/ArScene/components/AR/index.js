@@ -1,9 +1,6 @@
 'use strict';
 
 import React, { Component } from 'react';
-
-import {StyleSheet} from 'react-native';
-
 import {
   ViroARScene,
   ViroDirectionalLight,
@@ -28,11 +25,12 @@ import {
   ViroButton
 } from 'react-viro';
 
+import styles from './styles';
+
 const width = 0.210;
 const height = 0.158;
 
 export default class HelloWorldSceneAR extends Component {
-
   constructor(props){
     super(props)
     this.state = {
@@ -64,9 +62,7 @@ export default class HelloWorldSceneAR extends Component {
                 runAnimation: true
             })}
             onAnchorRemoved={
-            () => this.setState({
-                runAnimation: false
-            })}
+            (eee) =>console.log('onAnchorRemoved', eee)}
         >
             <ViroNode
               rotation={[-90, 0, 0]}
@@ -76,54 +72,55 @@ export default class HelloWorldSceneAR extends Component {
                 run: this.state.runAnimation
               }}
             >
-                  {type==='image'?<ViroImage
-                    position={[0, 0, 0]}
-                    height={height}
-                    width={width}
-                    style={styles.image}
-                    source={require('./res/space.jpg')}
-                    scale={[1, 1, 1]}
-                  />:
-                  <ViroVideo
-                      source={require('./res/train.mp4')}
-                      loop={true}
-                      style={styles.image}
-                      height={height}
-                      width={width}
-                      style={styles.image}
-                  />}
+                  {type==='image' ? (
+                      <ViroImage
+                        position={[0, 0, 0]}
+                        height={height}
+                        width={width}
+                        style={styles.image}
+                        source={require('./res/space.jpg')}
+                        // source={{uri: 'https://img1.wbstatic.net/large/new/3510000/3510507-1.jpg'}}
+                        scale={[1, 1, 1]}
+                      />
+                    ) : (
+                      <ViroVideo
+                          source={require('./res/train.mp4')}
+                          loop={true}
+                          style={styles.image}
+                          height={height}
+                          width={width}
+                          style={styles.image}
+                      />
+                    )
+                  }
             </ViroNode>
         </ViroARImageMarker>
       </ViroNode>
     )
   }
 
+  _onInitialized = (state, reason) => {
+    console.log('state', state, reason)
+    if (state == ViroConstants.TRACKING_NORMAL) {
+      isTracking: true
+    } else if (state == ViroConstants.TRACKING_LIMITED) {
+      isTracking: false
+    }
+  }
+
   render() {
     return (
-      <ViroARScene onTrackingUpdated={this._onInitialized} >
+      <ViroARScene onTrackingUpdated={this._onInitialized}>
         { this.state.isTracking ? this.getNoTrackingUI() : this.getARScene() }
       </ViroARScene>
     );
   }
-
-  _onInitialized = (state, reason) => {
-    if (state == ViroConstants.TRACKING_NORMAL) {
-      isTracking: true
-    } else if (state == ViroConstants.TRACKING_NONE) {
-      isTracking: false
-    }
-  }
 }
-
-var styles = StyleSheet.create({
-  image: {
-    flex: 1,
-  },
-});
 
 ViroARTrackingTargets.createTargets({
   "book" : {
-    source : require('./res/6509018-1.jpg'),
+    // source : {uri: 'https://img3.labirint.ru/rc/468c84da10acf3ed5a551b7c0ecc2f70/220x340/books65/641645/cover.jpg?1564114187'}, 
+    source : require('./res/book.jpg'),
     orientation : "Up",
     physicalWidth : width, // real world width in meters
     physicalHeight : height // real world width in meters
@@ -140,5 +137,3 @@ ViroAnimations.registerAnimations({
       duration: 500
   },
 });
-
-module.exports = HelloWorldSceneAR;

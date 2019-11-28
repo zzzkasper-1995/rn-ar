@@ -7,4 +7,10 @@ export default theme =>
 			borderColor: 'yellow',
 			marginBottom: 10,
 		},
+		btnsView: {
+			position: 'absolute',
+			left: 20,
+			right: 20,
+			bottom: 20,
+		},
 	});

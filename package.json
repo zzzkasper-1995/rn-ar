@@ -63,7 +63,7 @@
     "redux-persist": "^5.10.0",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
-    "yarn": "^1.13.0"
+    "yarn": "^1.17.3"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",

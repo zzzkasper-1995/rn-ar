@@ -1,0 +1,36 @@
+export default {
+	GRAY_BORDER: '#E6EFF4',
+	GRAY_TEXT_INPUT: 'rgba(0,0,0,0.08)',
+	BLUE_BTN_SIMPLE: '#007AFF',
+	PINK: 'rgba(173, 0, 0, 0.08)',
+	BLACK: '#000',
+	WHITE: '#FFF',
+	GRAY_PLACEHOLDER: 'rgb(141,141,141)',
+	GRAY_LIGHT: 'rgb(188,188,188)',
+	BLUE: '#007AFF',
+	GOLD: '#FFD700',
+	GRAY_BOTTOM_BAR: 'rgb(194,194,194)',
+	BLUE_BOTTOM_BAR: 'rgb(8,40,84)',
+
+	BLACK_LIGHT: 'rgb(32, 32, 32)',
+
+	SNOW: 'rgb(239, 236, 226)',
+	HEADER: 'rgb(243, 248, 255)',
+	BORDER: 'rgb(232, 232, 232)',
+
+	GRAY_OPACITY: 'rgba(34, 34, 34, 0.25)',
+	GRAY_OPACITY_LIGHT: 'rgba(34, 34, 34, 0.1)',
+
+	STRIP: 'rgb(229, 232, 244)',
+
+	PRIMARY_TEXT: 'rgb(73, 99, 134)',
+	SECONDARY_TEXT: 'rgba(185, 199, 218, 0.82)',
+	DARK_TEXT: 'rgb(8, 40, 84)',
+	PLACEHOLDER: 'rgb(185, 199, 218)',
+	BACKGROUND_MODAL: 'rgba(73, 99, 134, 0.39)',
+
+	GRADIENT: 'rgba(8, 40, 84, 0.62)',
+	GRADIENT2: 'rgba(8, 40, 84, 0.30)',
+	GRADIENT_TRANSLUCENT: 'rgba(0, 0, 0, 0.25)',
+	GRADIENT_OPACITY: 'rgba(0, 0, 0, 0)',
+};

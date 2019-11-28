@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<Text
+  style={
+    Object {
+      "color": "rgb(51, 51, 51)",
+      "fontSize": 16,
+    }
+  }
+/>
+`;
+
+exports[`renders correctly button 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "rgb(255,255,255)",
+      "stylesView": Object {
+        "backgroundColor": "rgb(51, 51, 51)",
+        "weight": 400,
+      },
+    }
+  }
+>
+  <Text
+    i18n={true}
+    style={
+      Object {
+        "color": undefined,
+        "fontSize": 16,
+      }
+    }
+  >
+    text not found
+  </Text>
+</View>
+`;
+
+exports[`renders correctly rounding 1`] = `"0"`;
+
+exports[`renders correctly text 1`] = `
+<Text
+  style={
+    Object {
+      "color": "rgb(51, 51, 51)",
+      "fontSize": 16,
+    }
+  }
+/>
+`;
+
+exports[`renders correctly view 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "rgb(255,255,255)",
+    }
+  }
+/>
+`;

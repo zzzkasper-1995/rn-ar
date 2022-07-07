@@ -31,7 +31,7 @@
     "imask": "^5.1.5",
     "jetemit": "^3.3.0",
     "js-doc": "^0.5.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "prop-types": "^15.7.2",
     "react": "^16.8.3",
     "react-final-form": "^6.2.1",
